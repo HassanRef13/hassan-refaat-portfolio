@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hassan Refaat Portfolio</title>
+<meta name="theme-color" content="#120d08">
+<link rel="preload" href="fonts/big-shoulders-display-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Big Shoulders Display";font-weight:500;font-display:swap;src:url(fonts/big-shoulders-display-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"Big Shoulders Display";font-weight:700;font-display:swap;src:url(fonts/big-shoulders-display-latin-700-normal.woff2) format("woff2")}
+@font-face{font-family:"Big Shoulders Display";font-weight:800;font-display:swap;src:url(fonts/big-shoulders-display-latin-800-normal.woff2) format("woff2")}
+@font-face{font-family:"Instrument Sans";font-weight:400;font-display:swap;src:url(fonts/instrument-sans-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Instrument Sans";font-weight:500;font-display:swap;src:url(fonts/instrument-sans-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"Instrument Sans";font-weight:600;font-display:swap;src:url(fonts/instrument-sans-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:"Reem Kufi";font-weight:500;font-display:swap;src:url(fonts/reem-kufi-arabic-500-normal.woff2) format("woff2");unicode-range:U+0600-06FF,U+0750-077F,U+FB50-FDFF,U+FE70-FEFF}
+@font-face{font-family:"Reem Kufi";font-weight:500;font-display:swap;src:url(fonts/reem-kufi-latin-500-normal.woff2) format("woff2");unicode-range:U+0000-00FF}
+@font-face{font-family:"Reem Kufi";font-weight:700;font-display:swap;src:url(fonts/reem-kufi-arabic-700-normal.woff2) format("woff2");unicode-range:U+0600-06FF,U+0750-077F,U+FB50-FDFF,U+FE70-FEFF}
+@font-face{font-family:"Reem Kufi";font-weight:700;font-display:swap;src:url(fonts/reem-kufi-latin-700-normal.woff2) format("woff2");unicode-range:U+0000-00FF}
+/* Layout idea: a dark corridor of doors (the image at the heart of "Emergence"); each door opens onto one body of work. */
+:root{
+  color-scheme:dark;
+  --umber:#120d08;      /* corridor wall */
+  --umber-2:#1b140c;    /* raised surface */
+  --umber-3:#2a2014;    /* lines, frames */
+  --parchment:#efe5cf;  /* text */
+  --dust:#a99a7c;       /* secondary text */
+  --gold:#cfa75c;       /* poster gold: films */
+  --ember:#d2573b;      /* ads */
+  --moss:#5fae7f;       /* apps */
+  --sky:#74a9cf;        /* design */
+  --rose:#c98aa6;       /* music */
+  --display:"Big Shoulders Display","Arial Narrow",Impact,sans-serif;
+  --body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --arabic:"Reem Kufi","Noto Kufi Arabic",Tahoma,sans-serif;
+  --wrap:1160px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--umber);color:var(--parchment);font:400 17px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+img,video{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--parchment);outline-offset:3px;border-radius:2px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:var(--display);font-weight:800;line-height:.95;margin:0;text-wrap:balance;letter-spacing:.01em}
+h2{font-size:clamp(44px,7vw,84px);text-transform:uppercase}
+h3{font-size:clamp(30px,4vw,46px);text-transform:uppercase}
+p{margin:0;max-width:62ch}
+.muted{color:var(--dust)}
+.ar{font-family:var(--arabic);direction:rtl}
+
+/* ---------- hero ---------- */
+.hero{padding:44px 0 0;background:radial-gradient(120% 70% at 50% 0%,#241a0e 0%,var(--umber) 62%)}
+.hero-top{display:flex;flex-wrap:wrap;gap:20px 48px;align-items:flex-end;justify-content:space-between}
+.hero h1{font-size:clamp(64px,13vw,176px);text-transform:uppercase;color:var(--gold);line-height:.82}
+.hero .lede{font-size:clamp(18px,2.1vw,22px);max-width:34ch;padding-bottom:10px}
+.laurels{display:flex;flex-wrap:wrap;gap:14px 34px;margin:34px 0 0;padding:0;list-style:none}
+.laurel{display:flex;align-items:center;gap:6px;color:var(--gold);text-decoration:none}
+.laurel svg{width:30px;height:64px;flex:none}
+.laurel svg:last-child{transform:scaleX(-1)}
+.laurel b{display:block;font:700 22px/1 var(--display);text-transform:uppercase;letter-spacing:.04em}
+.laurel span{display:block;font-size:13px;line-height:1.3;color:var(--parchment);max-width:20ch;text-align:center}
+.laurel div{text-align:center}
+a.laurel:hover b{text-decoration:underline}
+
+.corridor{margin-top:46px;padding:0 20px 0;perspective:1400px;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:clamp(8px,2.4vw,34px);max-width:var(--wrap);margin-inline:auto}
+.door{position:relative;display:block;text-decoration:none;--c:var(--gold)}
+.door .frame{display:block;position:relative;aspect-ratio:10/19;background:linear-gradient(180deg,color-mix(in srgb,var(--c) 92%,#fff) 0%,color-mix(in srgb,var(--c) 55%,#000) 100%);border:6px solid #0b0704;border-bottom:0;box-shadow:0 0 0 1px var(--umber-3);transform-style:preserve-3d;overflow:visible}
+.door .inside{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:800 clamp(34px,6vw,84px)/1 var(--display);color:rgba(18,13,8,.82)}
+.door .leaf{position:absolute;inset:0;transform-origin:left center;transform:rotateY(-24deg);transition:transform .5s cubic-bezier(.2,.7,.2,1);background:linear-gradient(90deg,#2b1d10,#3b2916 55%,#281a0d);box-shadow:inset 0 0 0 1px #17100a}
+.door .leaf::before,.door .leaf::after{content:"";position:absolute;left:14%;right:14%;border:2px solid #1c130a;box-shadow:inset 0 0 12px rgba(0,0,0,.45)}
+.door .leaf::before{top:7%;height:38%}
+.door .leaf::after{top:52%;height:40%}
+.door .knob{position:absolute;right:8%;top:50%;width:9%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 35% 30%,#f1d79a,#8a6a2c)}
+.door:hover .leaf,.door:focus-visible .leaf{transform:rotateY(-68deg)}
+.door .spill{display:block;height:54px;margin:0 -10%;background:linear-gradient(180deg,color-mix(in srgb,var(--c) 46%,transparent),transparent);clip-path:polygon(18% 0,82% 0,100% 100%,0 100%);filter:blur(1px)}
+.door .label{display:block;margin-top:-34px;position:relative;text-align:center;font:700 clamp(15px,2vw,24px)/1.1 var(--display);text-transform:uppercase;letter-spacing:.04em;color:var(--parchment)}
+.door small{display:block;font:400 13px/1.3 var(--body);text-transform:none;letter-spacing:0;color:var(--dust);margin-top:4px}
+.floor{height:28px;background:linear-gradient(180deg,#0a0603,var(--umber))}
+
+/* ---------- sections ---------- */
+section{padding:92px 0 20px;--c:var(--gold)}
+.sec-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 40px;border-bottom:1px solid var(--umber-3);padding-bottom:18px;margin-bottom:44px}
+.sec-head h2{color:var(--c)}
+.sec-head p{max-width:46ch;color:var(--dust)}
+.project{margin:0 0 84px}
+.project-head{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:baseline;margin-bottom:18px}
+.project-head .ar{font-size:clamp(24px,3vw,34px);color:var(--c)}
+.kind{font-size:14px;color:var(--dust)}
+.split{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:34px;align-items:start}
+.split.even{grid-template-columns:repeat(2,minmax(0,1fr))}
+.facts{margin:18px 0 0;padding:0;display:grid;grid-template-columns:auto 1fr;gap:6px 16px;font-size:15px}
+.facts dt{color:var(--dust)}
+.facts dd{margin:0}
+.btn{display:inline-flex;align-items:center;gap:8px;margin-top:20px;padding:11px 18px;border:1px solid var(--c);color:var(--c);text-decoration:none;font-weight:600;font-size:15px;border-radius:2px;background:none;cursor:pointer;font-family:var(--body)}
+.btn:hover{background:var(--c);color:var(--umber)}
+.poster{border:1px solid var(--umber-3)}
+.poster img{width:100%;height:auto;display:block}
+@media (max-width:860px){.poster:has(img[height="1200"]){max-width:340px;margin-inline:auto}}
+
+/* filmstrip */
+.strip{margin-top:26px;background:#070504;padding:22px 0;position:relative;overflow-x:auto;scrollbar-color:var(--umber-3) transparent}
+.strip::before,.strip::after{content:"";position:sticky;left:0;display:block;height:10px;width:100%;background:repeating-linear-gradient(90deg,transparent 0 10px,#2a2014 10px 22px,transparent 22px 32px);position:absolute;left:0;right:0}
+.strip::before{top:6px}.strip::after{bottom:6px}
+.strip-inner{display:flex;gap:8px;padding:0 14px;width:max-content}
+.cell{padding:0;border:0;background:none;cursor:zoom-in;flex:none}
+.cell img{height:clamp(120px,17vw,188px);width:auto;border-radius:1px}
+.cell:hover img{filter:brightness(1.15)}
+
+/* stills grid */
+.stills{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:10px}
+.stills .cell{grid-column:span 4}
+.stills .cell.wide{grid-column:span 8}
+.stills .cell.tall{grid-row:span 2}
+.stills .cell img{height:100%;width:100%;object-fit:cover}
+.cap{font-size:14px;color:var(--dust);margin-top:10px}
+
+/* tabs */
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px}
+.tab{font:600 15px var(--body);padding:8px 14px;background:none;border:1px solid var(--umber-3);color:var(--dust);cursor:pointer;border-radius:2px}
+.tab[aria-selected="true"]{border-color:var(--c);color:var(--c)}
+.panel[hidden]{display:none}
+.scenes{margin:0;padding:0;list-style:none;counter-reset:s;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--umber-3);border:1px solid var(--umber-3)}
+.scenes li{counter-increment:s;background:var(--umber-2);padding:16px 16px 18px;font-size:15px;line-height:1.45}
+.scenes li::before{content:"Scene " counter(s);display:block;font:700 18px var(--display);text-transform:uppercase;color:var(--c);margin-bottom:6px;letter-spacing:.04em}
+
+/* audio */
+.player{display:flex;align-items:center;gap:16px;background:var(--umber-2);border:1px solid var(--umber-3);padding:16px 18px;margin-top:22px}
+.play{flex:none;width:52px;height:52px;border-radius:50%;border:1px solid var(--c);background:none;color:var(--c);cursor:pointer;display:grid;place-items:center}
+.play svg{width:18px;height:18px;fill:currentColor}
+.play:hover{background:var(--c);color:var(--umber)}
+.wave{flex:1;min-width:0;height:56px;cursor:pointer}
+.time{font-variant-numeric:tabular-nums;font-size:14px;color:var(--dust);flex:none}
+
+/* ads */
+.ads{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px}
+.ad{background:var(--umber-2);border:1px solid var(--umber-3);display:flex;flex-direction:column}
+.ad.land{grid-column:span 2}
+.ads{align-items:start}
+.ads.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.subhead{font-size:30px;margin:54px 0 20px;color:var(--c)}
+.stage{position:relative;background:#000;aspect-ratio:9/16;overflow:hidden}
+.ad.land .stage{aspect-ratio:16/9}
+.stage video,.stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.stage img[hidden]{display:none}
+.ad-body{padding:16px 16px 18px;display:flex;flex-direction:column;gap:10px;flex:1}
+.ad-body h3{font-size:28px}
+.ad-body p{font-size:15px;color:var(--dust)}
+.steps{display:flex;gap:6px;margin-top:auto;align-items:stretch}
+.step{flex:1;min-width:0;padding:0;border:1px solid var(--umber-3);background:#000;cursor:pointer;position:relative;aspect-ratio:1;overflow:hidden;color:var(--parchment);font:600 12px var(--body)}
+.step img{width:100%;height:100%;object-fit:cover;opacity:.75}
+.step.result{display:grid;place-items:center;background:var(--umber-3)}
+.step[aria-pressed="true"]{border-color:var(--c)}
+.step[aria-pressed="true"] img{opacity:1}
+.pipe{font-size:13px;color:var(--c)}
+
+/* apps */
+.phone{width:min(270px,70vw);margin-inline:auto;border:9px solid #060403;border-radius:34px;background:#000;overflow:hidden;box-shadow:0 0 0 1px var(--umber-3),0 30px 60px rgba(0,0,0,.55);aspect-ratio:478/850}
+.phone video,.phone img{width:100%;height:100%;object-fit:cover}
+.fan{display:flex;gap:10px;overflow-x:auto;padding:4px 2px 12px;scrollbar-color:var(--umber-3) transparent}
+.fan .cell img{height:330px;border-radius:10px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 0;padding:0;list-style:none}
+.chips li{font-size:14px;padding:5px 11px;border:1px solid var(--umber-3);border-radius:99px;color:var(--parchment)}
+.status{display:inline-block;font-size:14px;font-weight:600;color:var(--umber);background:var(--c);padding:4px 10px;border-radius:2px;margin-top:16px}
+.nums{display:flex;flex-wrap:wrap;gap:8px 34px;margin-top:22px}
+.nums b{display:block;font:800 44px/1 var(--display);color:var(--c);font-variant-numeric:tabular-nums}
+.nums span{font-size:14px;color:var(--dust)}
+.screens{display:flex;gap:12px;justify-content:center;flex-wrap:nowrap}
+.screens .phone{width:min(170px,28vw);aspect-ratio:720/1409;border-width:7px;border-radius:26px}
+.flow{display:flex;flex-wrap:wrap;gap:10px 0;margin:6px 0 0;padding:0;list-style:none}
+.flow li{position:relative;padding:14px 26px 14px 18px;background:var(--umber-2);border:1px solid var(--umber-3);font-weight:600;font-size:15px;margin-right:16px}
+.flow li small{display:block;font-weight:400;color:var(--dust);font-size:13px;max-width:22ch;line-height:1.35}
+.flow li:not(:last-child)::after{content:"";position:absolute;right:-17px;top:50%;width:16px;height:1px;background:var(--c)}
+.flow li.ai{border-color:var(--c)}
+
+/* design */
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px}
+.cards.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+.card{background:var(--umber-2);border:1px solid var(--umber-3);text-decoration:none;display:block}
+.card img{width:100%;aspect-ratio:5/2;object-fit:cover}
+.card div{padding:18px}
+.card h3{font-size:30px;margin-bottom:8px}
+.card p{font-size:15px;color:var(--dust)}
+.card:hover{border-color:var(--c)}
+
+/* about */
+.about{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:44px}
+.about h3{margin:0 0 12px;color:var(--c);font-size:26px}
+.about ul{margin:0;padding:0;list-style:none;display:grid;gap:10px;font-size:16px}
+.about li span{display:block;color:var(--dust);font-size:14px}
+footer{margin-top:70px;border-top:1px solid var(--umber-3);padding:54px 0 70px}
+footer h2{color:var(--gold);font-size:clamp(40px,8vw,104px)}
+.contact{display:flex;flex-wrap:wrap;gap:18px 44px;margin-top:26px;font-size:19px}
+
+
+/* music */
+.music{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:34px;align-items:start}
+.cover{margin:0;border:1px solid var(--umber-3)}
+.cover img{width:100%}
+.tracks{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+.track{display:grid;grid-template-columns:52px minmax(130px,220px) minmax(0,1fr) auto;align-items:center;gap:16px;background:var(--umber-2);border:1px solid var(--umber-3);padding:12px 16px}
+.track.on{border-color:var(--c)}
+.tmeta b{display:block;font:700 20px/1.1 var(--display);text-transform:uppercase;letter-spacing:.03em}
+.tmeta span{font-size:13px;color:var(--dust)}
+.play{width:52px;height:52px;border-radius:50%;border:1px solid var(--c);background:none;color:var(--c);cursor:pointer;display:grid;place-items:center}
+.play svg{width:18px;height:18px;fill:currentColor}
+.play:hover{background:var(--c);color:var(--umber)}
+.wave{width:100%;height:46px;cursor:pointer}
+.time{font-variant-numeric:tabular-nums;font-size:14px;color:var(--dust)}
+@media (max-width:860px){.music{grid-template-columns:1fr}.cover{max-width:300px}.track{grid-template-columns:52px 1fr auto}.track .wave{grid-column:1/-1;grid-row:2}}
+
+.compare{position:relative;margin-top:22px;max-width:520px;aspect-ratio:760/720;overflow:hidden;border:1px solid var(--umber-3);user-select:none}
+.compare img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.compare .before{clip-path:inset(0 calc(100% - var(--pos)) 0 0)}
+.compare .handle{position:absolute;top:0;bottom:0;left:var(--pos);width:2px;margin-left:-1px;background:var(--parchment);box-shadow:0 0 0 1px rgba(0,0,0,.35)}
+.compare .handle::after{content:"";position:absolute;top:50%;left:50%;width:34px;height:34px;margin:-17px 0 0 -17px;border-radius:50%;border:2px solid var(--parchment);background:rgba(18,13,8,.55)}
+.compare .tag{position:absolute;bottom:10px;font-size:13px;font-weight:600;padding:3px 8px;background:rgba(18,13,8,.75);border-radius:2px}
+.compare .tag.l{left:10px}.compare .tag.r{right:10px}
+.compare input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.compare:has(input:focus-visible){outline:2px solid var(--parchment);outline-offset:3px}
+
+.shots{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.shots video{width:100%;aspect-ratio:16/9;object-fit:cover;background:#000;border:1px solid var(--umber-3)}
+@media (max-width:560px){.shots{grid-template-columns:1fr}}
+
+/* screen carousels */
+.screens-run{position:relative}
+.screens-run .frames{position:relative;overflow:hidden;background:#000}
+.screens-run .frames img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;opacity:0;transform:scale(1.03);transition:opacity .7s ease,transform 1.4s ease}
+.screens-run .frames img.on{opacity:1;transform:none}
+.browser{border:1px solid var(--umber-3);background:#05070b;border-radius:8px;overflow:hidden;box-shadow:0 30px 60px rgba(0,0,0,.5)}
+.browser .bar{display:flex;align-items:center;gap:6px;padding:9px 12px;background:#10141c;border-bottom:1px solid #1d2430}
+.browser .bar i{width:10px;height:10px;border-radius:50%;background:#2b3341}
+.browser .bar span{margin-left:10px;font-size:12px;color:#7d8899}
+.browser .frames{aspect-ratio:827/465}
+.browser .run-cap,.browser .dots{padding:0 12px}
+.browser .dots{padding-bottom:12px}
+.phone-run .frames{width:min(270px,70vw);margin-inline:auto;aspect-ratio:477/641;border:9px solid #060403;border-radius:34px;box-shadow:0 0 0 1px var(--umber-3),0 30px 60px rgba(0,0,0,.55)}
+.run-cap{font-size:14px;color:var(--dust);margin:12px 0 0;min-height:2.6em;text-align:center;max-width:none}
+.dots{display:flex;justify-content:center;gap:8px;margin-top:6px}
+.dots button{width:26px;height:4px;padding:0;border:0;border-radius:2px;background:var(--umber-3);cursor:pointer}
+.dots button[aria-current="true"]{background:var(--c)}
+
+/* motion */
+@keyframes rise{from{transform:translateY(.35em);opacity:0}to{transform:none;opacity:1}}
+@keyframes swing{0%{transform:rotateY(0)}55%{transform:rotateY(-78deg)}100%{transform:rotateY(-24deg)}}
+@keyframes glow{from{opacity:0}to{opacity:1}}
+.js .hero h1 .ln{display:inline-block;animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+.js .hero h1 .ln+br+.ln{animation-delay:.12s}
+.js .hero .lede,.js .laurels{animation:glow 1s .45s both}
+.js .door .leaf{animation:swing 1.6s cubic-bezier(.3,.6,.2,1) both;animation-delay:calc(.55s + var(--i,0) * .12s)}
+.js .door:hover .leaf,.js .door:focus-visible .leaf{animation:none;transform:rotateY(-68deg)}
+.js .door .spill{animation:glow 1.2s both;animation-delay:calc(.8s + var(--i,0) * .12s)}
+.js .reveal{transition:transform .8s cubic-bezier(.2,.7,.2,1),opacity .8s ease}
+.js .reveal.wait{transform:translateY(28px);opacity:.001}
+.door .frame::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(60% 40% at 50% 100%,rgba(255,240,200,.35),transparent 70%);opacity:0;transition:opacity .4s}
+.door:hover .frame::after{opacity:1}
+.hero{position:relative}
+.motes{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hero>.wrap,.hero>.corridor{position:relative;z-index:1}
+@media (prefers-reduced-motion:reduce){
+  .js .hero h1 .ln,.js .hero .lede,.js .laurels,.js .door .leaf,.js .door .spill{animation:none}
+  .js .reveal.wait{transform:none;opacity:1}
+  .screens-run .frames img{transition:none}
+  .motes{display:none}
+}
+
+.toolkit{margin-top:54px;border-top:1px solid var(--umber-3);padding-top:30px}
+.toolkit h3{color:var(--c);font-size:30px;margin:0 0 6px}
+.tk{display:grid;grid-template-columns:minmax(0,200px) minmax(0,1fr);gap:8px 24px;align-items:start;padding:14px 0;border-bottom:1px solid var(--umber-3)}
+.tk h4{margin:0;padding-top:8px;font:600 15px var(--body);color:var(--dust)}
+.tk .chips{margin:0}
+.js .tk .chips li{transition:border-color .3s,color .3s}
+.tk .chips li:hover{border-color:var(--c);color:var(--c)}
+@media (max-width:560px){.tk{grid-template-columns:1fr}}
+
+.reel{padding:46px 0 0}
+.reel-frame{position:relative;aspect-ratio:16/9;background:#000;border:1px solid var(--umber-3);overflow:hidden;box-shadow:0 40px 80px rgba(0,0,0,.55)}
+.reel-frame video{width:100%;height:100%;object-fit:cover}
+.reel-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:18px;background:linear-gradient(180deg,rgba(18,13,8,.15),rgba(18,13,8,.55));border:0;color:var(--parchment);cursor:pointer;font:700 clamp(22px,3vw,34px)/1.1 var(--display);text-transform:uppercase;letter-spacing:.04em;text-align:left}
+.reel-play small{display:block;font:400 14px var(--body);text-transform:none;letter-spacing:0;color:var(--dust);margin-top:6px}
+.reel-play .ring{width:clamp(64px,8vw,92px);aspect-ratio:1;border-radius:50%;border:2px solid var(--gold);display:grid;place-items:center;color:var(--gold);transition:transform .3s,background .3s}
+.reel-play .ring svg{width:34%;fill:currentColor;margin-left:6%}
+.reel-play:hover .ring{transform:scale(1.08);background:rgba(207,167,92,.15)}
+.reel-play[hidden]{display:none}
+.contact a{color:var(--parchment)}
+.contact span b{display:block;font:400 13px var(--body);color:var(--dust)}
+
+dialog{border:0;padding:0;background:transparent;max-width:96vw;max-height:94vh}
+dialog::backdrop{background:rgba(5,3,2,.92)}
+dialog img{display:block;max-width:96vw;max-height:88vh;width:auto;height:auto;object-fit:contain}
+dialog button{position:fixed;top:14px;right:14px;font:600 15px var(--body);background:var(--umber-2);color:var(--parchment);border:1px solid var(--umber-3);padding:8px 14px;cursor:pointer}
+
+@media (max-width:860px){
+  .split,.split.even,.about,.cards{grid-template-columns:1fr!important}
+  .split>*{min-width:0}
+  .ads{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .scenes{grid-template-columns:1fr}
+  .stills .cell,.stills .cell.wide{grid-column:span 6}
+  section{padding-top:64px}
+}
+@media (max-width:560px){
+  .ads.two{grid-template-columns:1fr}
+  .corridor{grid-template-columns:repeat(3,minmax(0,1fr));gap:26px 14px;padding:0 20px}
+  .door .frame{border-width:3px}
+  .door small{display:none}
+  .door .label{font-size:14px;margin-top:-30px}
+  .facts{grid-template-columns:1fr;gap:2px}.facts dd{margin:0 0 10px}
+  html,body{overflow-x:hidden}
+  .ads{grid-template-columns:1fr}
+  .ad.land{grid-column:auto}
+  .flow li{margin-right:0;width:100%}
+  .flow li:not(:last-child)::after{display:none}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.door .leaf{transition:none}}
+
+
+/* hover: mist drifts out of the open door and the project count shows */
+.door .anim{position:absolute;inset:0;display:block;overflow:hidden;pointer-events:none;opacity:0;transition:opacity .5s ease}
+.door:hover .anim,.door:focus-visible .anim{opacity:1}
+.door .anim i{position:absolute;display:block;bottom:-30%;width:90%;aspect-ratio:1;border-radius:50%;background:radial-gradient(closest-side,rgba(255,250,238,.95),rgba(255,250,238,.4) 55%,transparent);filter:blur(5px);opacity:0}
+.door .anim i:nth-child(1){left:20%}.door .anim i:nth-child(2){left:45%}.door .anim i:nth-child(3){left:30%}.door .anim i:nth-child(4){left:55%}
+.door:hover .anim i,.door:focus-visible .anim i{animation:mist 3.2s ease-out infinite}
+.door:hover .anim i:nth-child(2){animation-delay:.8s}.door:hover .anim i:nth-child(3){animation-delay:1.6s}.door:hover .anim i:nth-child(4){animation-delay:2.4s}
+@keyframes mist{0%{transform:translateY(0) scale(.6);opacity:0}25%{opacity:1}100%{transform:translateY(-150%) scale(1.7);opacity:0}}
+.door .count{position:absolute;left:36%;right:2%;top:46%;transform:translateY(-40%);text-align:center;opacity:0;transition:opacity .45s ease .2s,transform .6s cubic-bezier(.2,.7,.2,1) .2s;z-index:2;pointer-events:none}
+.door .count b{display:block;font:800 clamp(26px,3.8vw,54px)/1 var(--display);color:#1a120a;text-shadow:0 0 18px rgba(255,248,230,.9)}
+.door .count small{display:block;margin-top:4px;font:600 clamp(9px,.9vw,12px)/1.2 var(--body);letter-spacing:.08em;text-transform:uppercase;color:#1a120a}
+.door:hover .count,.door:focus-visible .count{opacity:1;transform:translateY(-50%)}
+.door:hover .inside,.door:focus-visible .inside{opacity:0;transition:opacity .3s}
+@media (prefers-reduced-motion:reduce){.door .anim i{animation:none!important}}
+
+/* live site link */
+.live{display:inline-flex;align-items:center;gap:14px;margin-top:22px;padding:12px 20px 12px 16px;background:var(--c);color:var(--umber);text-decoration:none;border-radius:3px;font-family:var(--body);box-shadow:0 8px 28px color-mix(in srgb,var(--c) 30%,transparent);transition:transform .2s,box-shadow .2s}
+.live:hover{transform:translateY(-2px);box-shadow:0 12px 34px color-mix(in srgb,var(--c) 45%,transparent)}
+.live .dot{width:10px;height:10px;border-radius:50%;background:#1f7a3f;box-shadow:0 0 0 0 rgba(31,122,63,.6);animation:livepulse 1.8s infinite}
+.live b{display:block;font:700 15px/1.2 var(--body)}
+.live small{display:block;font:500 13px/1.3 var(--body);opacity:.8;direction:ltr}
+@keyframes livepulse{70%{box-shadow:0 0 0 8px rgba(31,122,63,0)}100%{box-shadow:0 0 0 0 rgba(31,122,63,0)}}
+@media (prefers-reduced-motion:reduce){.live .dot{animation:none}}
+.card .url{display:inline-block;margin-top:10px;font:600 13px/1.3 var(--body);color:var(--c);border-bottom:1px solid currentColor}
+</style>
+</head>
+<body>
+<script>document.documentElement.className+=" js"</script>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="wreath" viewBox="0 0 30 64">
+    <g fill="currentColor">
+      <ellipse cx="20" cy="6" rx="3.2" ry="7" transform="rotate(38 20 6)"/>
+      <ellipse cx="14" cy="14" rx="3.2" ry="7" transform="rotate(26 14 14)"/>
+      <ellipse cx="10" cy="24" rx="3.2" ry="7" transform="rotate(12 10 24)"/>
+      <ellipse cx="9" cy="35" rx="3.2" ry="7" transform="rotate(-4 9 35)"/>
+      <ellipse cx="12" cy="46" rx="3.2" ry="7" transform="rotate(-22 12 46)"/>
+      <ellipse cx="19" cy="55" rx="3.2" ry="7" transform="rotate(-44 19 55)"/>
+    </g>
+  </symbol>
+</svg>
+
+<header class="hero">
+  <canvas class="motes" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="hero-top">
+      <h1><span class="ln">Hassan</span><br><span class="ln">Refaat</span></h1>
+      <p class="lede">AI artist and filmmaker in 6th of October City, Egypt. I write, design and direct short films with generative tools, then build the apps and tools the work needs.</p>
+    </div>
+    <ul class="laurels">
+      <li><a class="laurel" href="https://filmfreeway.com/MiamiArtTechSummit" title="Miami Art Tech Summit on FilmFreeway">
+        <svg><use href="#wreath"/></svg><div><b>Official selection</b><span>Emergence, Miami Art Tech Summit 2025</span></div><svg><use href="#wreath"/></svg></a></li>
+      <li><a class="laurel" href="https://filmfreeway.com/YEFSC2025" title="Youth Empowerment Films &amp; Songs Competition on FilmFreeway">
+        <svg><use href="#wreath"/></svg><div><b>Semi-finalist</b><span>Emergence, Youth Empowerment Films &amp; Songs Competition</span></div><svg><use href="#wreath"/></svg></a></li>
+      <li><a class="laurel" href="https://filmfreeway.com/sdgsfilmchallengeandawards" title="SDGs Short Film Challenge on FilmFreeway">
+        <svg><use href="#wreath"/></svg><div><b>Nominee</b><span>Ruba, SDGs Short Film Challenge 2025</span></div><svg><use href="#wreath"/></svg></a></li>
+    </ul>
+  </div>
+
+  <nav class="corridor" aria-label="Bodies of work">
+    <a class="door" href="#films" style="--i:0;--c:var(--gold)"><span class="frame"><span class="inside">5</span><span class="anim"><i></i><i></i><i></i><i></i></span><span class="count"><b>5</b><small>films</small></span><span class="leaf"><span class="knob"></span></span></span><span class="spill"></span><span class="label">Films<small>shorts and pre-production</small></span></a>
+    <a class="door" href="#ads" style="--i:1;--c:var(--ember)"><span class="frame"><span class="inside">6</span><span class="anim"><i></i><i></i><i></i><i></i></span><span class="count"><b>6</b><small>projects</small></span><span class="leaf"><span class="knob"></span></span></span><span class="spill"></span><span class="label">Experiments<small>ads and motion tests</small></span></a>
+    <a class="door" href="#apps" style="--i:2;--c:var(--moss)"><span class="frame"><span class="inside">6</span><span class="anim"><i></i><i></i><i></i><i></i></span><span class="count"><b>6</b><small>apps</small></span><span class="leaf"><span class="knob"></span></span></span><span class="spill"></span><span class="label">Apps and tools<small>designed and built</small></span></a>
+    <a class="door" href="#design" style="--i:3;--c:var(--sky)"><span class="frame"><span class="inside">3</span><span class="anim"><i></i><i></i><i></i><i></i></span><span class="count"><b>3</b><small>projects</small></span><span class="leaf"><span class="knob"></span></span></span><span class="spill"></span><span class="label">Design<small>UX and identity</small></span></a>
+    <a class="door" href="#music" style="--i:4;--c:var(--rose)"><span class="frame"><span class="inside">5</span><span class="anim"><i></i><i></i><i></i><i></i></span><span class="count"><b>5</b><small>tracks</small></span><span class="leaf"><span class="knob"></span></span></span><span class="spill"></span><span class="label">Music<small>scores and themes</small></span></a>
+    <a class="door" href="#about" style="--i:5;--c:var(--parchment)"><span class="frame"><span class="inside">i</span><span class="anim"><i></i><i></i><i></i><i></i></span><span class="count"><b>Hi</b><small>about me</small></span><span class="leaf"><span class="knob"></span></span></span><span class="spill"></span><span class="label">About<small>background and contact</small></span></a>
+  </nav>
+  <div class="floor"></div>
+</header>
+
+<main>
+<section id="reel" class="reel" style="--c:var(--gold)">
+  <div class="wrap">
+    <div class="reel-frame">
+      <video id="reelVideo" src="media/showreel.mp4" poster="media/showreel-poster.jpg" playsinline preload="none" controls aria-label="Showreel, 70 seconds"></video>
+      <button class="reel-play" id="reelPlay" type="button"><span class="ring"><svg viewBox="0 0 20 20"><path d="M6 3l11 7-11 7z"/></svg></span><span>Play the showreel<small>70 seconds, sound on</small></span></button>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FILMS ================= -->
+<section id="films" style="--c:var(--gold)">
+  <div class="wrap">
+    <div class="sec-head"><h2>Films</h2><p>Three finished shorts, one in character development and one in production. Story, direction and every frame by me, generated with AI tools.</p></div>
+
+    <article class="project">
+      <div class="project-head"><h3>Emergence</h3><span class="ar" lang="ar">انبثاق</span><span class="kind">Short film, 2025</span></div>
+      <div class="split">
+        <div class="poster"><img src="media/em-poster.jpg" alt="Emergence poster: the Arabic and English title in gold over a dark corridor, with the line Directed by Hassan Refaat" width="967" height="492"></div>
+        <div>
+          <p>A young man walks a dark corridor lined with doors. Each one opens onto a memory he would rather not revisit: lost love, fading passion, loneliness, poverty. Every door makes him heavier and stronger, until the last one opens onto light.</p>
+          <dl class="facts">
+            <dt>Role</dt><dd>Writer, director, AI artist, editor</dd>
+            <dt>Tools</dt><dd>ChatGPT image generation, Higgsfield</dd>
+            <dt>Festivals</dt><dd>Official selection, Miami Art Tech Summit. Semi-finalist, Youth Empowerment Films &amp; Songs Competition.</dd>
+          </dl>
+          <a class="btn" href="https://www.behance.net/gallery/235748115/Emergence">On Behance</a>
+        </div>
+      </div>
+      <div class="filmplayer" style="margin:30px 0 26px;border:1px solid var(--umber-3);background:#000">
+        <video src="media/emergence-film.mp4" poster="media/em-5.jpg" controls playsinline preload="none" style="display:block;width:100%;aspect-ratio:16/9;background:#000" aria-label="Emergence, the full short film, 2:53"></video>
+      </div>
+      <p class="cap" style="margin:-14px 0 26px">Full film, 2:53. Sound on.</p>
+      <div class="strip" tabindex="0" aria-label="Frames from Emergence"><div class="strip-inner">
+        <button class="cell"><img src="media/em-2.jpg" alt="The man watches through mist as a boy hands flowers to a girl in a green garden"></button>
+        <button class="cell"><img src="media/em-4.jpg" alt="Seen from behind at the desk, his own figure watching from smoke" loading="lazy" decoding="async"></button>
+        <button class="cell"><img src="media/em-5.jpg" alt="The man sitting alone in an armchair in a dim living room" loading="lazy" decoding="async"></button>
+        <button class="cell"><img src="media/em-6.jpg" alt="A silhouette opening a lit door in a dark, smoky corridor" loading="lazy" decoding="async"></button>
+        <button class="cell"><img src="media/em-7.jpg" alt="The man climbing stairs toward a bright doorway, a trophy beside it" loading="lazy" decoding="async"></button>
+      </div></div>
+      <p class="cap">Frames from the film. Select one to enlarge.</p>
+    </article>
+
+    <article class="project">
+      <div class="project-head"><h3>Ruba</h3><span class="ar" lang="ar">روبا</span><span class="kind">Animated short, 2025</span></div>
+      <div class="split" style="grid-template-columns:minmax(0,1fr) minmax(0,340px)">
+        <div>
+          <p>Ruba was just a child, filling her room with laughter and little dreams. She went to school, wrote, drew, and smiled with the confidence of innocence. Then everything changed: planes in the sky, people running in fear. In the end she stands alone in the rubble, quietly asking why.</p>
+          <dl class="facts">
+            <dt>Role</dt><dd>Writer, director, AI artist</dd>
+            <dt>Style</dt><dd>2D storybook animation, all assets AI-generated</dd>
+            <dt>Festivals</dt><dd>Nominee, SDGs Short Film Challenge</dd>
+          </dl>
+          <a class="btn" href="https://www.behance.net/gallery/226679431/Ruba-Short-Film-(AI-Created)">On Behance</a>
+        </div>
+        <div class="poster"><img src="media/ruba-poster.jpg" alt="Ruba poster: a girl holding a doll, half her world sunny toys, half ruins and warplanes, with the line A childhood between laughter and ruins" width="800" height="1200" loading="lazy" decoding="async"></div>
+      </div>
+      <div class="filmplayer" style="margin:30px 0 26px;border:1px solid var(--umber-3);background:#000">
+        <video src="media/ruba-film.mp4" poster="media/ruba-hd-1.jpg" controls playsinline preload="none" style="display:block;width:100%;aspect-ratio:16/9;background:#000" aria-label="Ruba, the full short film, 3:08"></video>
+      </div>
+      <p class="cap" style="margin:-14px 0 26px">Full film, 3:08. Sound on.</p>
+      <div class="strip" tabindex="0" aria-label="Frames from Ruba"><div class="strip-inner">
+        <button class="cell"><img src="media/ruba-hd-1.jpg" alt="Ruba playing with her teddy bear in a bright bedroom" loading="lazy" decoding="async"></button>
+        <button class="cell"><img src="media/ruba-hd-2.jpg" alt="Ruba writing at her school desk among classmates" loading="lazy" decoding="async"></button>
+        <button class="cell"><img src="media/ruba-hd-3.jpg" alt="Her notebook: a drawing of the Palestinian flag and a heart" loading="lazy" decoding="async"></button>
+        <button class="cell"><img src="media/ruba-hd-4.jpg" alt="Ruba skipping through a sunlit street" loading="lazy" decoding="async"></button>
+        <button class="cell"><img src="media/ruba-hd-5.jpg" alt="Ruba running down the street with other children" loading="lazy" decoding="async"></button>
+        <button class="cell"><img src="media/ruba-hd-6.jpg" alt="Families look up as a warplane appears over the town" loading="lazy" decoding="async"></button>
+        <button class="cell"><img src="media/ruba-hd-7.jpg" alt="A warplane drops a bomb over the rooftops" loading="lazy" decoding="async"></button>
+        <button class="cell"><img src="media/ruba-hd-8.jpg" alt="From above: Ruba among craters on the ground" loading="lazy" decoding="async"></button>
+        <button class="cell"><img src="media/ruba-hd-9.jpg" alt="A burning warplane over the houses" loading="lazy" decoding="async"></button>
+        <button class="cell"><img src="media/ruba-4.jpg" alt="Families crouching among ruined buildings and smoke" loading="lazy" decoding="async"></button>
+        <button class="cell"><img src="media/ruba-6.jpg" alt="Ruba standing stunned in the rubble" loading="lazy" decoding="async"></button>
+        <button class="cell"><img src="media/ruba-9.jpg" alt="Ruba sitting alone on the ground in a tent camp" loading="lazy" decoding="async"></button>
+        <button class="cell"><img src="media/ruba-12.jpg" alt="Ruba crying, looking up at a dark sky" loading="lazy" decoding="async"></button>
+      </div></div>
+    </article>
+
+    <article class="project">
+      <div class="project-head"><h3>Insulin, my friend</h3><span class="kind">Animated awareness short for a pharmaceutical client, 2026</span></div>
+      <div class="split" style="grid-template-columns:minmax(0,300px) minmax(0,1fr)">
+        <div class="phone" style="aspect-ratio:9/16"><video src="media/insulin-short.mp4" poster="media/insulin-short-poster.jpg" controls playsinline preload="none" aria-label="Animated short: a doctor and an insulin pen in conversation"></video></div>
+        <div>
+          <p>A doctor talks with a worried insulin pen who feels everyone treats it like a drug to be afraid of. In under a minute and a half, in Egyptian Arabic, the film reframes insulin as the thing that lets people with diabetes play, work and live fully.</p>
+          <dl class="facts">
+            <dt>Role</dt><dd>Script, character design, animation, edit</dd>
+            <dt>Characters</dt><dd>A stylised 3D doctor developed from a real person's photo, and an original insulin-pen mascot</dd>
+          </dl>
+          <div class="compare" id="compare" style="--pos:50%">
+            <img src="media/insulin-doctor-character.jpg" alt="The stylised 3D doctor character" width="760" height="720" loading="lazy" decoding="async">
+            <img class="before" src="media/insulin-doctor-photo.jpg" alt="Reference photo of the real doctor the character is based on" width="760" height="720" loading="lazy" decoding="async">
+            <span class="handle" aria-hidden="true"></span>
+            <span class="tag l">Reference photo</span><span class="tag r">Character</span>
+            <input type="range" min="0" max="100" value="50" aria-label="Compare the reference photo with the character">
+          </div>
+          <p class="cap">Drag to compare the real doctor with the character built from him.</p>
+          <div class="split even" style="margin-top:22px;gap:12px">
+            <button class="cell"><img src="media/insulin-doctor-sheet.jpg" alt="Model sheet for the doctor character: reference, four full-body views, face and eye close-ups, five expressions and mouth shapes" loading="lazy" decoding="async"></button>
+            <button class="cell"><img src="media/insulin-pen-sheet.jpg" alt="Model sheet for the insulin pen mascot: reference render, four views, five expressions, eye and mouth details" loading="lazy" decoding="async"></button>
+          </div>
+          <p class="cap">Both characters were locked in full model sheets before a single scene was animated.</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="project-head"><h3>The Shadow</h3><span class="kind">Short film, 2025</span></div>
+      <div class="split" style="grid-template-columns:minmax(0,340px) minmax(0,1fr);margin-bottom:34px">
+        <div class="poster"><img src="media/sh-poster.jpg" alt="The Shadow poster: a man in a black tactical vest stands in a burning street as crowds run, a giant hooded silhouette behind him" width="800" height="1200" loading="lazy" decoding="async"></div>
+        <div>
+          <p>An action short set in a Cairo on fire. Malik, a hard man in black, walks through a city in chaos while a shadow larger than any one man rises behind him. Every face, street and explosion was generated, then held consistent from shot to shot.</p>
+          <dl class="facts">
+            <dt>Role</dt><dd>Writer, director, AI artist, editor</dd>
+            <dt>Characters</dt><dd>Malik and El-Sefr, each built from a reference portrait</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="filmplayer" style="margin:30px 0 26px;border:1px solid var(--umber-3);background:#000">
+        <video src="media/shadow-film.mp4" poster="media/shadow-film-poster.jpg" controls playsinline preload="none" style="display:block;width:100%;aspect-ratio:16/9;background:#000" aria-label="The Shadow, the full short film, 2:34"></video>
+      </div>
+      <p class="cap" style="margin:-14px 0 26px">Full film, 2:34. Sound on.</p>
+      <div class="shots">
+        <video src="media/sh-shot-1.mp4" poster="media/sh-shot-1.jpg" muted loop playsinline preload="none" aria-label="Night street in Cairo with police lights flashing"></video>
+        <video src="media/sh-shot-2.mp4" poster="media/sh-shot-2.jpg" muted loop playsinline preload="none" aria-label="An explosion on a crowded street as people run past police cars"></video>
+        <video src="media/sh-shot-3.mp4" poster="media/sh-shot-3.jpg" muted loop playsinline preload="none" aria-label="A hazy old Cairo street in morning light with people walking"></video>
+        <video src="media/sh-shot-4.mp4" poster="media/sh-shot-4.jpg" muted loop playsinline preload="none" aria-label="A man in a leather jacket seen from behind, walking toward a burnt car in smoke"></video>
+      </div>
+      <p class="cap" style="margin-bottom:22px">Motion tests for the film. They play on their own while on screen.</p>
+      <div class="stills" style="grid-auto-rows:210px">
+        <button class="cell wide tall"><img src="media/sh-fight.jpg" alt="Two men in black trading blows in a ruined street lit by burning cars" loading="lazy" decoding="async"></button>
+        <button class="cell tall"><img src="media/sh-elsefr-cairo.jpg" alt="A pale, long-haired man in a dark green suit walking a Cairo street at sunset, Cairo Tower behind him" loading="lazy" decoding="async"></button>
+        <button class="cell"><img src="media/sh-malik-portrait.jpg" alt="Reference portrait of Malik: a stern man in a black t-shirt against a plain wall" loading="lazy" decoding="async"></button>
+        <button class="cell"><img src="media/sh-elsefr-sheet.jpg" alt="Character sheet for El-Sefr: the pale man in a green suit holding a black balloon printed with scales of justice" loading="lazy" decoding="async"></button>
+        <button class="cell"><img src="media/sh-malik-street.jpg" alt="Malik in a crowded street at night" loading="lazy" decoding="async"></button>
+      </div>
+      <p class="cap">Malik and El-Sefr: a reference portrait for each, then the same face carried into lit, staged scenes. Stills made with ChatGPT image generation.</p>
+    </article>
+
+    <article class="project">
+      <div class="project-head"><h3>The Eye of Others</h3><span class="kind">Short film in production</span></div>
+      <p style="margin-bottom:22px">An illustrator stuck in a routine far from art keeps telling himself he will start tomorrow. A woman who sees what he cannot see in himself helps him break the fear, and he opens a gallery named after her way of looking.</p>
+      <div class="tabs" role="tablist" aria-label="The Eye of Others material">
+        <button class="tab" role="tab" aria-selected="true" aria-controls="p-film" id="t-film">Film frames</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="p-frames" id="t-frames">Early look tests</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="p-sheets" id="t-sheets">Model sheets</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="p-scenes" id="t-scenes">Scene breakdown</button>
+      </div>
+      <div class="panel" id="p-film" role="tabpanel" aria-labelledby="t-film">
+        <div class="shots">
+          <video src="media/eye-clip-morning.mp4" poster="media/eye-clip-morning.jpg" muted loop playsinline preload="none" aria-label="Morning: he sits on his bed, looks out of the window, then a cold cup of coffee on his desk"></video>
+          <video src="media/eye-clip-office.mp4" poster="media/eye-clip-office.jpg" muted loop playsinline preload="none" aria-label="Seen from above, he sketches at his office desk surrounded by his drawings"></video>
+        </div>
+        <div class="strip" tabindex="0" aria-label="Frames from The Eye of Others"><div class="strip-inner">
+        <button class="cell"><img src="media/eye-f01.jpg" alt="He leaves the office through a heavy door, evening light behind him" loading="lazy" decoding="async"></button>
+        <button class="cell"><img src="media/eye-f02.jpg" alt="At his cubicle, staring past the screen while colleagues walk by" loading="lazy" decoding="async"></button>
+        <button class="cell"><img src="media/eye-f03.jpg" alt="Walking toward camera down a rainy old Cairo street lined with minarets" loading="lazy" decoding="async"></button>
+        <button class="cell"><img src="media/eye-f04.jpg" alt="Walking away from camera through the same rainy street" loading="lazy" decoding="async"></button>
+        <button class="cell"><img src="media/eye-f05.jpg" alt="Seen from above: the only figure without an umbrella in a crowded lane" loading="lazy" decoding="async"></button>
+        <button class="cell"><img src="media/eye-f06.jpg" alt="Walking between strangers in the rain" loading="lazy" decoding="async"></button>
+        <button class="cell"><img src="media/eye-f07.jpg" alt="Over his shoulder: wet cobblestones and passing feet" loading="lazy" decoding="async"></button>
+        <button class="cell"><img src="media/eye-f08.jpg" alt="Close-up of his hand, rain dripping from his fingers" loading="lazy" decoding="async"></button>
+        <button class="cell"><img src="media/eye-f09.jpg" alt="Night in his room: drawing at a lamp-lit desk, sketches pinned to the walls" loading="lazy" decoding="async"></button>
+        <button class="cell"><img src="media/eye-f10.jpg" alt="Close-up of a pencil sketching under the lamp" loading="lazy" decoding="async"></button>
+        <button class="cell"><img src="media/eye-f11.jpg" alt="He studies his drawing, unsure of it" loading="lazy" decoding="async"></button>
+        <button class="cell"><img src="media/eye-f12.jpg" alt="Extreme close-up: his eyes above the sheet of paper" loading="lazy" decoding="async"></button>
+        </div></div>
+        <p class="cap">The final look: hand-drawn texture, cold blue routine against warm lamp light whenever he draws.</p>
+      </div>
+      <div class="panel" id="p-frames" role="tabpanel" aria-labelledby="t-frames" hidden>
+        <div class="stills" style="grid-auto-rows:minmax(150px,auto)">
+          <button class="cell"><img src="media/eye-frame-01-desk.jpg" alt="Top-down view of the illustrator drawing a portrait at a cluttered desk" loading="lazy" decoding="async"></button>
+          <button class="cell"><img src="media/eye-frame-02-bedroom.jpg" alt="The illustrator sitting on the edge of his bed in grey morning light" loading="lazy" decoding="async"></button>
+          <button class="cell"><img src="media/eye-frame-03-street.jpg" alt="The illustrator walking down a street among silhouetted passers-by" loading="lazy" decoding="async"></button>
+        </div>
+        <p class="cap">The first look tests, before the film moved to an illustrated style.</p>
+      </div>
+      <div class="panel" id="p-sheets" role="tabpanel" aria-labelledby="t-sheets" hidden>
+        <div class="split even">
+          <button class="cell"><img src="media/eye-modelsheet-hero.jpg" alt="Model sheet for the hero: four turnaround views and four facial expressions" loading="lazy" decoding="async"></button>
+          <button class="cell"><img src="media/eye-modelsheet-heroine.jpg" alt="Model sheet for the heroine: four turnaround views and six labelled expressions" loading="lazy" decoding="async"></button>
+        </div>
+        <p class="cap">Turnarounds and expression sets lock each character before any scene is generated.</p>
+      </div>
+      <div class="panel" id="p-scenes" role="tabpanel" aria-labelledby="t-scenes" hidden>
+        <ol class="scenes">
+          <li>Wide shot of his room. The alarm, the same clothes, the same coffee, the same road. Clock hands.</li>
+          <li>Locked-off camera at his office desk. Same emails, same faces. His own drawings pinned around him.</li>
+          <li>At home, wide angle. He draws, then shuts the page in a drawer.</li>
+          <li>A café. Lost in thought, he sketches her on a napkin. He spills her coffee, hands her the napkin, and she finds her own face on it.</li>
+          <li>He wakes up different. Someone has seen what he makes. He goes to work with energy.</li>
+          <li>That evening he brings her another drawing. She is even more taken.</li>
+          <li>Montage: outings, a friendship forming.</li>
+          <li>He draws more and more. The next day he hands in his resignation.</li>
+          <li>He opens a gallery. The sign reads The Eye of Others.</li>
+        </ol>
+      </div>
+    </article>
+
+    <p class="muted" style="font-size:15px">Also: character concepts, environments and scene composition for an animated series that is still confidential.</p>
+  </div>
+</section>
+
+<!-- ================= ADS ================= -->
+<section id="ads" style="--c:var(--ember)">
+  <div class="wrap">
+    <div class="sec-head"><h2>Experiments</h2><p>Short product spots, multi-shot motion tests and a storyboard test.</p></div>
+    <div class="ads">
+      <article class="ad">
+        <div class="stage" style="aspect-ratio:16/9"><video src="media/ad-pizza.mp4" poster="media/ad-pizza-poster.jpg" controls playsinline preload="none"></video></div>
+        <div class="ad-body"><h3>Margherita</h3><p>A 22-second food spot from dough to the cheese pull: stretching, sauce, cheese, the wood-fired oven, basil and the first slice, cut to music.</p><span class="pipe">Veo</span></div>
+      </article>
+      <article class="ad">
+        <div class="stage" style="aspect-ratio:16/9"><video style="object-fit:contain" src="media/ad-chefcat.mp4" poster="media/ad-chefcat-poster.jpg" controls playsinline preload="none"></video></div>
+        <div class="ad-body"><h3>Chef cat</h3><p>A vertical short for social: a cat in a chef's hat makes a pizza from scratch. The same character holds across every step, from kneading to the finished pie.</p><span class="pipe">Veo, vertical 9:16</span></div>
+      </article>
+      <article class="ad">
+        <div class="stage" style="aspect-ratio:16/9"><video style="object-fit:contain" src="media/ad-diploma.mp4" poster="media/ad-diploma-poster.jpg" controls playsinline preload="none" aria-label="Promo for a cinema diploma: each instructor at work in their craft"></video></div>
+        <div class="ad-body"><h3>Cinema diploma promo</h3><p>A 28-second vertical promo for the filmmaking diploma at Rawa’e (روائع), Saudi Arabia. Each instructor appears at work in their own craft: directing, screenwriting, storyboard, special-effects makeup, cinematography and film music.</p><div class="keyart" style="display:flex;gap:8px;margin:14px 0 6px"><button class="cell"><img src="media/dip-poster-storyboard.jpg" alt="Course poster, Storyboard: the instructor at a desk of sketches in a lit film studio" style="height:120px" loading="lazy" decoding="async"></button><button class="cell"><img src="media/dip-poster-soundtrack.jpg" alt="Course poster, Soundtrack: the instructor at a grand piano in the same studio" style="height:120px" loading="lazy" decoding="async"></button><button class="cell"><img src="media/dip-poster-cinematography.jpg" alt="Course poster, Cinematography: the instructor with a lens, a camera, a film reel and a clapperboard" style="height:120px" loading="lazy" decoding="async"></button></div><p style="color:var(--dust);font-size:13px;margin:0 0 10px">The posters for each course: one studio, each instructor with the tools of his craft.</p><span class="pipe">Client work, AI video, vertical 9:16</span></div>
+      </article>
+        </div>
+    <h3 class="subhead">Motion tests</h3>
+    <div class="ads two">
+      <article class="ad">
+        <div class="stage" style="aspect-ratio:16/9"><video src="media/test-shore.mp4" poster="media/test-shore.jpg" controls playsinline preload="none"></video></div>
+        <div class="ad-body"><h3>Shore battle</h3><p>A fifteen-second sequence: a fortress across the water, a lone swordsman on the beach, the fight, and the aftermath. One hero held steady through wide, action and close-up shots.</p><span class="pipe">Multi-shot AI video test</span></div>
+      </article>
+      <article class="ad">
+        <div class="stage" style="aspect-ratio:16/9"><video src="media/test-dragon.mp4" poster="media/test-dragon.jpg" controls playsinline preload="none"></video></div>
+        <div class="ad-body"><h3>Sky island duel</h3><p>A warrior runs across floating rocks to face a dragon, ending in a storm of light. A test of scale, camera movement and effects.</p><span class="pipe">Multi-shot AI video test</span></div>
+      </article>
+    </div>
+      <h3 class="subhead">Comic-style storyboard</h3>
+    <p class="muted" style="margin-bottom:6px">A storyboard test: an action sequence told in seven panels, keeping the hero's face, suit and inked graphic-novel look steady from street riot to final stand-off.</p>
+    <div class="strip" tabindex="0" aria-label="Comic-style storyboard panels"><div class="strip-inner">
+        <button class="cell"><img src="media/sb-01.jpg" alt="Wide panel: a city street at night, fires burning, police cars and fleeing crowds" loading="lazy" decoding="async"></button>
+        <button class="cell"><img src="media/sb-02.jpg" alt="The hero in a black tactical suit leaps across a rooftop above a watching crowd" loading="lazy" decoding="async"></button>
+        <button class="cell"><img src="media/sb-03.jpg" alt="In a crowded market, the hero grabs an attacker as an explosion flares behind them" loading="lazy" decoding="async"></button>
+        <button class="cell"><img src="media/sb-04.jpg" alt="Kneeling in rubble after the blast, the hero looks up" loading="lazy" decoding="async"></button>
+        <button class="cell"><img src="media/sb-05.jpg" alt="In a cable-strewn control room, he holds out a strange metal tool" loading="lazy" decoding="async"></button>
+        <button class="cell"><img src="media/sb-06.jpg" alt="Lit by monitor glow, an energy beam links his eye to the screen" loading="lazy" decoding="async"></button>
+        <button class="cell"><img src="media/sb-07.jpg" alt="Final panel: the hero stands in a spotlight on an abandoned theatre stage marked with a giant O" loading="lazy" decoding="async"></button>
+    </div></div>
+  </div>
+</section>
+
+<!-- ================= APPS ================= -->
+<section id="apps" style="--c:var(--moss)">
+  <div class="wrap">
+    <div class="sec-head"><h2>Apps and tools</h2><p>Products I designed and built with AI coding tools, each one starting from a problem I hit myself: at work, at a café table, or writing my own scripts.</p></div>
+
+    <article class="project">
+      <div class="project-head"><h3>Mitsubishi FA Assistant</h3><span class="kind">AI engineering reference for the web</span></div>
+      <div class="split" style="grid-template-columns:minmax(0,1.35fr) minmax(0,1fr)">
+        <div class="screens-run" data-run aria-label="Mitsubishi FA Assistant screens">
+          <div class="frames" style="aspect-ratio:2576/1438;border-radius:12px;overflow:hidden;border:1px solid var(--umber-3)">
+            <img src="media/fa-1-home.jpg" alt="Home: search by model or paste a GX Works configuration, over 1,425 manuals, 214,000+ pages and 35,000+ error codes" loading="lazy" decoding="async">
+            <img src="media/fa-2-manuals.jpg" alt="The FX5U manuals library, grouped by hardware, programming, positioning, analog and network" loading="lazy" decoding="async">
+            <img src="media/fa-3-viewer.jpg" alt="A manual open on the wiring chapter, with its table of contents, search highlights and PDF export" loading="lazy" decoding="async">
+            <img src="media/fa-4-chat.jpg" alt="The assistant answers how to connect an FX5U to a GOT2000: steps, a wiring diagram and the manual pages it used" loading="lazy" decoding="async">
+            <img src="media/fa-5-errors.jpg" alt="Error Explorer: each alarm with its severity, cause, remedy and the manual section it comes from" loading="lazy" decoding="async">
+          </div>
+          <p class="run-cap" aria-live="polite"></p>
+          <div class="dots"></div>
+        </div>
+        <div>
+          <p>Automation engineers lose time hunting through PDFs while a line is down. This tool has read every official Mitsubishi factory-automation manual and answers in plain language, citing the exact manual and page, and showing the real wiring diagrams. It is retrieval-grounded, so it quotes the source instead of guessing.</p>
+          <div class="nums">
+            <div><b data-count="1425">1,425</b><span>official manuals</span></div>
+            <div><b data-count="214000" data-suffix="+">214,000+</b><span>pages indexed</span></div>
+            <div><b data-count="35000" data-suffix="+">35,000+</b><span>error codes</span></div>
+          </div>
+          <ul class="chips"><li>RAG with page citations</li><li>Product-family aware</li><li>Error explorer</li><li>I/O builder and code generation</li><li>Runs on free-tier infrastructure</li></ul>
+          <a class="live" href="https://mitsubishi-fa.vercel.app" target="_blank" rel="noopener"><span class="dot"></span><span><b>Try it live</b><small>mitsubishi-fa.vercel.app</small></span></a>
+        </div>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="project-head"><h3>Rafiq</h3><span class="ar" lang="ar">رفيق</span><span class="kind">Islamic companion app for Android</span></div>
+      <div class="split" style="grid-template-columns:minmax(0,300px) minmax(0,1fr)">
+        <div class="phone"><video src="media/rafiq-promo.mp4" poster="media/rafiq-promo-poster.jpg" controls muted loop playsinline preload="none" aria-label="Rafiq promo video"></video></div>
+        <div>
+          <p>One app for a day of worship: prayer times with the adhan on time, an offline Quran with tafsir and recitation, shared group readings, adhkar with a digital tasbih, a hadith library and a step-by-step Seerah journey.</p>
+          <span class="status">In closed testing on Google Play</span>
+          <div class="nums">
+            <div><b>3,574</b><span>verified hadiths</span></div>
+            <div><b>30</b><span>parts in a shared khatma</span></div>
+            <div><b>314</b><span>hadiths in the Seerah journey</span></div>
+          </div>
+          <ul class="chips"><li>Product and UI design</li><li>Built with Claude Code</li><li>Own API backend</li><li>Store art and promo video</li></ul>
+          <div class="fan" tabindex="0" aria-label="Rafiq store screens" style="margin-top:22px">
+            <button class="cell"><img src="media/rafiq-cover.jpg" alt="Store image: Rafiq, your complete companion on the journey of faith" loading="lazy" decoding="async"></button>
+            <button class="cell"><img src="media/rafiq-home.jpg" alt="Store image: prayer times with a countdown to the next prayer" loading="lazy" decoding="async"></button>
+            <button class="cell"><img src="media/rafiq-mushaf.jpg" alt="Store image: the Quran reader with recitation" loading="lazy" decoding="async"></button>
+            <button class="cell"><img src="media/rafiq-khatma.jpg" alt="Store image: the shared group khatma with a grid of thirty parts" loading="lazy" decoding="async"></button>
+            <button class="cell"><img src="media/rafiq-adhkar.jpg" alt="Store image: adhkar and the digital tasbih" loading="lazy" decoding="async"></button>
+            <button class="cell"><img src="media/rafiq-features.jpg" alt="Store image: qibla, adhan, Seerah quiz and lock-screen wallpapers" loading="lazy" decoding="async"></button>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="project-head"><h3>Mashhad</h3><span class="ar" lang="ar">مَشْهَد</span><span class="kind">Screenwriting workspace for the web, in Arabic</span></div>
+      <p style="margin-bottom:22px">A pre-production studio in the browser. It takes a film from logline to storyboard in one place, and uses AI where it saves real time: character model sheets and storyboard frames that keep each character's face consistent.</p>
+      <ol class="flow">
+        <li>Story<small>logline, treatment, three acts</small></li>
+        <li class="ai">Characters<small>profiles and AI model sheets</small></li>
+        <li>Locations<small>where each scene happens, set notes</small></li>
+        <li>Script<small>scene, time, place, dialogue</small></li>
+        <li class="ai">Storyboard<small>AI frames per scene</small></li>
+        <li>Export<small>Word, PDF, JSON</small></li>
+      </ol>
+      <div class="screens-run" data-run aria-label="Mashhad interface" style="margin-top:26px">
+        <div class="frames" style="aspect-ratio:2576/1438;border-radius:12px;overflow:hidden;border:1px solid var(--umber-3)">
+          <img src="media/ms-s1.jpg" alt="Projects: every film as a card with its genre, scenes, characters, dialogue count and progress" loading="lazy" decoding="async">
+          <img src="media/ms-s2.jpg" alt="Project dashboard for The Last Train: logline, three-act structure, characters, locations and exports to Word, PDF and JSON" loading="lazy" decoding="async">
+          <img src="media/ms-s3.jpg" alt="The writing page: scene list, interior or exterior, time of day, characters in the scene, action and dialogue" loading="lazy" decoding="async">
+          <img src="media/ms-s4.jpg" alt="Characters: AI model sheets that keep each face consistent, with a biography, dramatic goal and an AI review of the character" loading="lazy" decoding="async">
+          <img src="media/ms-s5.jpg" alt="AI storyboard: one frame per scene, tagged by shot size and lens, ready to generate or regenerate" loading="lazy" decoding="async">
+          <img src="media/ms-v1.jpg" alt="The screenplay editor: scene tree on the right, formatted Arabic script in the middle, AI assistant panel on the left" loading="lazy" decoding="async">
+          <img src="media/ms-v2.jpg" alt="Mashhad across devices: screenplay editor on a laptop, director's notes on a tablet, shooting schedule and voice-to-dialogue recorder on a phone" loading="lazy" decoding="async">
+          <img src="media/ms-v3.jpg" alt="Director's storyboard and visual beat board: frames tagged by lens, shot and light, with a timeline of picture and sound" loading="lazy" decoding="async">
+          <img src="media/ms-v4.jpg" alt="Zen focus mode in warm paper and dark themes, with a command palette and notes in the director's margin" loading="lazy" decoding="async">
+        </div>
+        <p class="run-cap" aria-live="polite"></p>
+        <div class="dots"></div>
+      </div>
+      <a class="live" href="https://mashhad-writer.pages.dev/" target="_blank" rel="noopener"><span class="dot"></span><span><b>Try it live</b><small>mashhad-writer.pages.dev</small></span></a>
+    </article>
+
+    <article class="project">
+      <div class="project-head"><h3>Hasebni</h3><span class="ar" lang="ar">حاسبني</span><span class="kind">Bill-splitting app for Android</span></div>
+      <div class="split" style="grid-template-columns:minmax(0,300px) minmax(0,1fr)">
+        <div class="screens-run" data-run aria-label="Hasebni screens">
+          <div class="frames" style="aspect-ratio:1080/1920;border-radius:18px;overflow:hidden;border:1px solid var(--umber-3)">
+            <img src="media/hs-p1.jpg" alt="Hasebni: split the bill with your friends in seconds" loading="lazy" decoding="async">
+            <img src="media/hs-p2.jpg" alt="Step 1: photograph the receipt, pick it from the gallery or type the items" loading="lazy" decoding="async">
+            <img src="media/hs-p3.jpg" alt="Step 2: AI reads every item with its price and quantity" loading="lazy" decoding="async">
+            <img src="media/hs-p4.jpg" alt="Step 3: each person picks what they ate, or shares an item" loading="lazy" decoding="async">
+            <img src="media/hs-p5.jpg" alt="Tax and service are spread across everyone correctly" loading="lazy" decoding="async">
+            <img src="media/hs-p6.jpg" alt="Final split: everyone knows exactly what they owe, and gets their own bill to share" loading="lazy" decoding="async">
+          </div>
+          <p class="run-cap" aria-live="polite"></p>
+          <div class="dots"></div>
+        </div>
+        <div>
+          <p>Born at a breakfast with friends, when working out who owes what took longer than the meal. Snap the receipt and the app reads every item, you tap who had what, and it splits tax and service fairly so everyone gets their own bill in seconds.</p>
+          <ol class="flow" style="margin-top:22px">
+            <li>Add people</li>
+            <li class="ai">Scan receipt<small>AI reads the items</small></li>
+            <li>Review</li>
+            <li>Assign<small>share an item between people</small></li>
+            <li>Split<small>tax and service included</small></li>
+          </ol>
+          <ul class="chips"><li>Receipt OCR</li><li>Built with ChatGPT, Claude, Google AI Studio and Antigravity</li></ul>
+        </div>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="project-head"><h3>Pixel Slither</h3><span class="kind">Retro snake game for the browser</span></div>
+      <div class="split" style="grid-template-columns:minmax(0,1.35fr) minmax(0,1fr)">
+        <div class="browser">
+          <div class="bar"><i></i><i></i><i></i><span>Pixel Slither</span></div>
+          <video class="loop" src="media/ad-game.mp4" poster="media/ad-game-poster.jpg" muted loop playsinline preload="none" aria-label="Gameplay recording of Pixel Slither" style="display:block;width:100%;aspect-ratio:898/560;object-fit:cover;background:#000"></video>
+        </div>
+        <div>
+          <p>A playable arcade game: steer the snake, eat, grow and climb a shared online leaderboard. Built in one sitting to test how far a prompt can go from an idea to a working, hosted product.</p>
+          <ul class="chips"><li>Game design</li><li>Online leaderboard</li><li>ChatGPT</li><li>Google Firebase</li></ul>
+          <p class="cap">Gameplay recording.</p>
+        </div>
+      </div>
+    </article>
+    <article class="project">
+      <div class="project-head"><h3>E-Chat</h3><span class="kind">Private family messenger for Android</span></div>
+      <div class="split even">
+        <div>
+          <p>A private messenger that started as a friend’s idea. Encrypted conversations, groups and voice messages sit next to a personal space for to-dos, events and shared plans, so the week does not get lost in the chat. Rebuilt several times until the architecture held.</p>
+          <ul class="chips"><li>React Native</li><li>Expo</li><li>Supabase</li><li>Arabic-first, right to left</li></ul>
+          <p class="cap">Names and photos in these screens are placeholders.</p>
+        </div>
+        <div class="screens">
+          <div class="phone"><img src="media/echat-chats.jpg" alt="E-Chat conversation list with encrypted and group labels" loading="lazy" decoding="async"></div>
+          <div class="phone"><img src="media/echat-tasks.jpg" alt="E-Chat notes screen, tasks tab" loading="lazy" decoding="async"></div>
+          <div class="phone"><img src="media/echat-events.jpg" alt="E-Chat notes screen, events tab" loading="lazy" decoding="async"></div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ================= DESIGN ================= -->
+<section id="design" style="--c:var(--sky)">
+  <div class="wrap">
+    <div class="sec-head"><h2>Design</h2><p>Where the eye was trained before the AI tools arrived: UX case studies, brand identity and web.</p></div>
+    <div class="cards three">
+      <a class="card" href="https://www.behance.net/gallery/168642367/MYClass-mobile-app-Case-study">
+        <img src="media/myclass.jpg" alt="MYClass online learning UX case study cover with three phone screens" loading="lazy" decoding="async">
+        <div><h3>MYClass</h3><p>UX case study for an online learning app that mixes courses with games so students stay with it. Research, flows, UI and prototype in Figma. My most-viewed project on Behance.</p></div>
+      </a>
+      <a class="card" href="https://www.behance.net/gallery/241125309/brand-identify-logo-design">
+        <img src="media/brand-building.jpg" alt="Gold Arabic calligraphy logo for Al-Seraj Al-Muneer for Supplies mounted on a dark building facade" loading="lazy" decoding="async">
+        <div><h3>Al-Seraj Al-Muneer</h3><p>Logo and identity for a supplies company serving the Saudi market: a calligraphic lamp of light on a stable base. Made with Samira Mohamed.</p></div>
+      </a>
+      <a class="card" href="https://sites.google.com/view/yousicast" target="_blank" rel="noopener">
+        <img src="media/yousicast.jpg" alt="YousiCast website in a browser window: a dental training brand with three product highlights" loading="lazy" decoding="async">
+        <div><h3>YousiCast</h3><p>Website for a dental education brand that makes patented training models for pediatric dentistry, used in Egyptian universities. Structure, copy layout and product highlights, built on Google Sites.</p><span class="url">Visit the live site: sites.google.com/view/yousicast</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MUSIC ================= -->
+<section id="music" style="--c:var(--rose)">
+  <div class="wrap">
+    <div class="sec-head"><h2>Music</h2><p>Scores and themes I composed for my films and concepts. Select a track to play it, or the waveform to jump.</p></div>
+    <div class="music">
+      <figure class="cover"><img src="media/abdelkader-poster.jpg" alt="Poster for Abd el-Qader, directed by Hassan Refaat: a robed rider in a desert battlefield" loading="lazy" decoding="async"></figure>
+      <ol class="tracks">
+        <li class="track" data-src="media/music-beginning-of-the-shadow.mp3" data-dur="171" data-peaks='[0.08, 0.25, 0.42, 0.59, 0.48, 0.68, 0.65, 0.71, 0.71, 0.81, 0.91, 0.99, 0.89, 0.92, 1.0, 0.91, 0.95, 0.93, 0.9, 0.87, 0.88, 0.9, 0.88, 0.93, 0.93, 0.93, 0.9, 0.91, 0.96, 0.95, 0.89, 0.83, 0.5, 0.48, 0.47, 0.56, 0.5, 0.58, 0.65, 0.65, 0.72, 0.95, 0.94, 0.91, 0.96, 0.93, 0.93, 0.9, 0.94, 0.89, 0.97, 0.94, 0.95, 0.96, 0.87, 0.94, 0.93, 0.94, 0.94, 0.89, 0.92, 0.83, 0.73, 0.62, 0.81, 0.68, 0.51, 0.74, 0.81, 0.79, 0.73, 0.59, 0.89, 0.9, 0.9, 0.94, 0.96, 0.95, 0.91, 0.94, 0.86, 0.87, 0.88, 0.19, 0.29, 0.46, 0.48, 0.27, 0.03, 0.0]'>
+          <button class="play" aria-label="Play Beginning of the Shadow"><svg viewBox="0 0 20 20"><path d="M5 3l12 7-12 7z"/></svg></button>
+          <div class="tmeta"><b>Beginning of the Shadow</b><span>The Shadow, opening</span></div>
+          <canvas class="wave" role="slider" tabindex="0" aria-label="Seek in Beginning of the Shadow" aria-valuemin="0" aria-valuemax="171" aria-valuenow="0"></canvas>
+          <span class="time">2:51</span>
+        </li>
+        <li class="track" data-src="media/music-the-shadow-is-here.mp3" data-dur="156" data-peaks='[0.0, 0.71, 0.9, 0.53, 0.91, 0.88, 0.79, 0.41, 0.9, 0.95, 0.93, 0.51, 0.7, 0.94, 0.84, 0.5, 0.91, 0.94, 0.92, 0.93, 0.91, 0.43, 0.99, 0.91, 0.91, 0.7, 0.25, 0.45, 0.94, 0.89, 0.9, 0.88, 0.82, 0.86, 0.91, 0.86, 0.89, 0.89, 0.9, 0.95, 0.86, 0.39, 0.5, 0.91, 0.97, 0.69, 0.94, 0.92, 0.94, 0.92, 0.82, 1.0, 0.68, 0.4, 0.93, 0.93, 0.91, 0.95, 0.64, 0.66, 0.31, 0.25, 0.23, 0.33, 0.21, 0.26, 0.24, 0.29, 0.23, 0.27, 0.24, 0.29, 0.25, 0.85, 0.94, 0.95, 0.85, 0.75, 0.99, 0.98, 0.94, 0.97, 0.97, 0.94, 0.98, 0.99, 0.46, 0.16, 0.07, 0.0]'>
+          <button class="play" aria-label="Play The Shadow Is Here"><svg viewBox="0 0 20 20"><path d="M5 3l12 7-12 7z"/></svg></button>
+          <div class="tmeta"><b>The Shadow Is Here</b><span>The Shadow, reveal</span></div>
+          <canvas class="wave" role="slider" tabindex="0" aria-label="Seek in The Shadow Is Here" aria-valuemin="0" aria-valuemax="156" aria-valuenow="0"></canvas>
+          <span class="time">2:36</span>
+        </li>
+        <li class="track" data-src="media/music-abdelkader.mp3" data-dur="138" data-peaks='[0.8, 0.33, 0.21, 0.27, 0.32, 0.37, 0.49, 0.39, 0.53, 0.35, 0.75, 0.85, 0.64, 0.49, 0.67, 0.74, 0.92, 0.87, 0.89, 0.95, 0.84, 0.96, 0.71, 0.88, 0.75, 0.84, 0.83, 0.78, 0.64, 0.84, 0.9, 0.89, 0.78, 0.73, 0.92, 0.75, 0.93, 0.89, 0.83, 0.82, 0.77, 0.74, 0.9, 0.77, 0.73, 0.77, 0.83, 0.27, 0.71, 0.78, 0.75, 0.75, 0.79, 0.85, 0.69, 0.82, 0.78, 0.78, 0.73, 0.65, 0.63, 0.74, 0.74, 0.68, 0.65, 0.67, 0.68, 0.6, 0.71, 0.8, 0.97, 0.86, 0.88, 0.8, 1.0, 0.98, 0.8, 0.82, 0.64, 0.78, 0.84, 0.75, 0.69, 0.7, 0.84, 0.76, 0.75, 0.72, 0.84, 0.71]'>
+          <button class="play" aria-label="Play Abd el-Qader"><svg viewBox="0 0 20 20"><path d="M5 3l12 7-12 7z"/></svg></button>
+          <div class="tmeta"><b>Abd el-Qader</b><span>Main theme for a film poster concept</span></div>
+          <canvas class="wave" role="slider" tabindex="0" aria-label="Seek in Abd el-Qader" aria-valuemin="0" aria-valuemax="138" aria-valuenow="0"></canvas>
+          <span class="time">2:18</span>
+        </li>
+        <li class="track" data-src="media/music-emotional-piano.mp3" data-dur="214" data-peaks='[0.19, 0.56, 0.42, 0.76, 0.78, 0.63, 0.82, 0.6, 0.8, 0.94, 0.6, 0.78, 0.68, 0.79, 0.75, 0.67, 0.42, 0.31, 0.45, 0.38, 0.35, 0.46, 0.49, 0.42, 0.33, 0.46, 0.51, 0.5, 0.67, 0.59, 0.54, 0.55, 0.57, 0.4, 0.4, 0.52, 0.56, 0.33, 0.48, 0.49, 0.46, 0.78, 0.65, 0.45, 0.48, 0.66, 0.54, 0.47, 0.62, 0.51, 0.65, 0.75, 0.6, 0.54, 0.75, 1.0, 0.53, 0.3, 0.44, 0.3, 0.33, 0.29, 0.54, 0.5, 0.35, 0.36, 0.4, 0.29, 0.47, 0.41, 0.37, 0.35, 0.38, 0.33, 0.29, 0.62, 0.29, 0.34, 0.27, 0.48, 0.39, 0.3, 0.44, 0.56, 0.54, 0.57, 0.63, 0.42, 0.28, 0.05]'>
+          <button class="play" aria-label="Play Emotional piano"><svg viewBox="0 0 20 20"><path d="M5 3l12 7-12 7z"/></svg></button>
+          <div class="tmeta"><b>Emotional piano</b><span>Short film soundtrack</span></div>
+          <canvas class="wave" role="slider" tabindex="0" aria-label="Seek in Emotional piano" aria-valuemin="0" aria-valuemax="214" aria-valuenow="0"></canvas>
+          <span class="time">3:34</span>
+        </li>
+        <li class="track" data-src="media/music-afterglow.mp3" data-dur="206" data-peaks='[0.44, 0.44, 0.5, 0.56, 0.51, 0.39, 0.6, 0.82, 0.68, 0.81, 0.74, 0.72, 0.86, 0.72, 0.83, 0.87, 0.71, 0.87, 0.92, 0.92, 0.83, 0.9, 0.96, 0.62, 0.52, 0.54, 0.77, 0.81, 0.81, 0.85, 0.74, 0.73, 0.51, 0.47, 0.61, 0.72, 0.58, 0.5, 0.39, 0.43, 0.49, 0.45, 0.5, 0.39, 0.47, 0.87, 0.94, 0.67, 0.41, 0.36, 0.34, 0.29, 0.27, 0.37, 0.46, 0.63, 0.71, 1.0, 0.8, 0.75, 0.74, 0.85, 0.86, 0.87, 0.77, 0.66, 0.77, 0.78, 0.78, 0.55, 0.57, 0.69, 0.95, 0.75, 0.62, 0.52, 0.29, 0.14, 0.2, 0.35, 0.44, 0.49, 0.39, 0.7, 0.95, 0.98, 0.79, 0.89, 0.67, 0.75]'>
+          <button class="play" aria-label="Play Afterglow"><svg viewBox="0 0 20 20"><path d="M5 3l12 7-12 7z"/></svg></button>
+          <div class="tmeta"><b>Afterglow</b><span>Original track</span></div>
+          <canvas class="wave" role="slider" tabindex="0" aria-label="Seek in Afterglow" aria-valuemin="0" aria-valuemax="206" aria-valuenow="0"></canvas>
+          <span class="time">3:26</span>
+        </li>
+      </ol>
+    </div>
+    <audio id="song" preload="none"></audio>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section id="about" style="--c:var(--gold)">
+  <div class="wrap">
+    <div class="sec-head"><h2>About</h2></div>
+    <div class="about">
+      <div>
+        <p style="font-size:20px;line-height:1.5">I trained as a mechatronics engineer and work in industrial automation, which is why I treat generative tools like any other system: learn what they can hold constant, then design around it. On a film that means locking characters and light before generating a single scene.</p>
+        <h3 style="margin-top:34px">What I do on a project</h3>
+        <ul>
+          <li>Story and direction<span>logline, treatment, scene breakdown, shot design</span></li>
+          <li>Character and look development<span>model sheets, turnarounds, consistent faces across shots</span></li>
+          <li>Image, video, voice and music generation<span>across the major models; full toolkit below</span></li>
+          <li>Finishing<span>Sound and music</span></li>
+          <li>Building the tools<span>web and mobile apps with AI coding tools</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Background</h3>
+        <ul>
+          <li>BSc Mechatronics Engineering, dual degree<span>MSA University and University of Greenwich, 2016 to 2021, Very Good</span></li>
+          <li>Graduation project lead<span>Multi-agent robots on ROS</span></li>
+          <li>IEEE, public relations<span>2019</span></li>
+          <li>MSA Mechatronics Club, head of marketing<span>2018</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="toolkit">
+      <h3>Toolkit</h3>
+      <div class="tk"><h4>Image models</h4><ul class="chips"><li>Nano Banana</li><li>Seedream</li><li>Midjourney</li><li>Flux</li><li>GPT Image (ChatGPT)</li><li>Imagen</li><li>Leonardo</li><li>Ideogram</li><li>Recraft</li><li>Krea</li><li>Freepik</li><li>Adobe Firefly</li><li>Stable Diffusion</li></ul></div>
+      <div class="tk"><h4>Video models</h4><ul class="chips"><li>Veo 3.1</li><li>Kling</li><li>Seedance</li><li>Hailuo</li><li>Wan</li><li>Sora</li><li>Runway</li><li>Luma Dream Machine</li><li>Pika</li><li>Higgsfield</li><li>Vidu</li><li>PixVerse</li></ul></div>
+      <div class="tk"><h4>Voice and music</h4><ul class="chips"><li>Suno</li><li>Udio</li><li>ElevenLabs</li></ul></div>
+      <div class="tk"><h4>Design</h4><ul class="chips"><li>Canva</li><li>Figma</li><li>Adobe XD</li></ul></div>
+      <div class="tk"><h4>Language models and coding</h4><ul class="chips"><li>ChatGPT</li><li>Claude</li><li>Gemini</li><li>Claude Code</li><li>Cursor</li><li>Codex</li><li>Google AI Studio</li><li>Antigravity</li></ul></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <h2>Open for work</h2>
+    <p style="margin-top:14px;font-size:19px">AI artist, AI filmmaker and generative design roles, full time or freelance.</p>
+    <div class="contact">
+      <span><b>Email</b><a href="mailto:hassan.ref113@gmail.com">hassan.ref113@gmail.com</a></span>
+      <span><b>Phone and WhatsApp</b><a href="https://wa.me/201154090593">+20 115 409 0593</a></span>
+      <span><b>Portfolio</b><a href="https://www.behance.net/hassanrefa7a61">Behance</a></span>
+    </div>
+  </div>
+</footer>
+
+<dialog id="lightbox" aria-label="Enlarged image"><img alt="" loading="lazy" decoding="async"><button type="button">Close</button></dialog>
+
+<script>
+(function(){
+  var still=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // lightbox
+  var dlg=document.getElementById('lightbox'), big=dlg.querySelector('img');
+  document.addEventListener('click',function(e){
+    var cell=e.target.closest('button.cell');
+    if(cell){var im=cell.querySelector('img');big.src=im.currentSrc||im.src;big.alt=im.alt;if(dlg.showModal)dlg.showModal();return;}
+    if(e.target===dlg||e.target.closest('dialog button'))dlg.close();
+  });
+
+  // tabs
+  var tabs=[].slice.call(document.querySelectorAll('[role=tab]'));
+  tabs.forEach(function(t){t.addEventListener('click',function(){
+    tabs.forEach(function(o){var on=o===t;o.setAttribute('aria-selected',on);document.getElementById(o.getAttribute('aria-controls')).hidden=!on;});
+  });});
+
+  // ad stills vs clip
+  document.querySelectorAll('[data-ad]').forEach(function(ad){
+    var v=ad.querySelector('video'), still=ad.querySelector('.stage img'), steps=[].slice.call(ad.querySelectorAll('.step'));
+    steps.forEach(function(s){s.setAttribute('aria-pressed',s.classList.contains('result'));s.addEventListener('click',function(){
+      steps.forEach(function(o){o.setAttribute('aria-pressed',o===s);});
+      if(s.dataset.src){v.pause();still.src=s.dataset.src;still.alt=s.querySelector('img').alt;still.hidden=false;}
+      else{still.hidden=true;var p=v.play();if(p&&p.catch)p.catch(function(){});}
+    });});
+  });
+
+  // only one video at a time
+  var vids=[].slice.call(document.querySelectorAll('video:not(.shots video):not(video.loop)'));
+  vids.forEach(function(v){v.addEventListener('play',function(){vids.forEach(function(o){if(o!==v)o.pause();});});});
+
+
+  // music playlist
+  var song=document.getElementById('song'), rows=[].slice.call(document.querySelectorAll('.track')), current=null;
+  var PLAY='M5 3l12 7-12 7z', PAUSE='M4 3h4v14H4zM12 3h4v14h-4z';
+  function fmt(t){t=Math.floor(t);return Math.floor(t/60)+':'+('0'+t%60).slice(-2);}
+  function draw(row){
+    var cv=row.querySelector('canvas'), r=cv.getBoundingClientRect(), d=window.devicePixelRatio||1; if(!r.width)return;
+    var peaks=JSON.parse(row.dataset.peaks), dur=+row.dataset.dur, prog=(row===current)?(song.currentTime/dur):0;
+    cv.width=r.width*d; cv.height=r.height*d; var g=cv.getContext('2d'); g.scale(d,d);
+    var cs=getComputedStyle(row), on=cs.getPropertyValue('--c').trim()||'#c98aa6', off=cs.getPropertyValue('--umber-3').trim()||'#2a2014', w=r.width/peaks.length;
+    for(var i=0;i<peaks.length;i++){var h=Math.max(2,peaks[i]*r.height*.92);g.fillStyle=(i/peaks.length<prog)?on:off;g.fillRect(i*w+.5,(r.height-h)/2,Math.max(1,w-1.5),h);}
+    cv.setAttribute('aria-valuenow',row===current?Math.round(song.currentTime):0);
+    row.querySelector('.time').textContent=(row===current&&song.currentTime>0)?fmt(song.currentTime)+' / '+fmt(dur):fmt(dur);
+  }
+  function setIcon(row,playing){row.querySelector('.play path').setAttribute('d',playing?PAUSE:PLAY);row.classList.toggle('on',playing||row===current);}
+  function start(row,at){
+    vids.forEach(function(o){o.pause();});
+    if(current!==row){var prev=current;current=row;if(prev){setIcon(prev,false);prev.classList.remove('on');draw(prev);}song.src=row.dataset.src;}
+    if(at!=null){song.addEventListener('loadedmetadata',function h(){song.currentTime=at;song.removeEventListener('loadedmetadata',h);});if(song.readyState>0)song.currentTime=at;}
+    var p=song.play();if(p&&p.catch)p.catch(function(){});
+  }
+  rows.forEach(function(row){
+    row.querySelector('.play').addEventListener('click',function(){if(current===row&&!song.paused)song.pause();else start(row);});
+    var cv=row.querySelector('canvas');
+    cv.addEventListener('click',function(e){var r=cv.getBoundingClientRect();start(row,Math.min(1,Math.max(0,(e.clientX-r.left)/r.width))*(+row.dataset.dur));});
+    cv.addEventListener('keydown',function(e){if(e.key!=='ArrowRight'&&e.key!=='ArrowLeft')return;e.preventDefault();var t=(current===row?song.currentTime:0)+(e.key==='ArrowRight'?5:-5);start(row,Math.max(0,t));});
+    draw(row);
+  });
+  song.addEventListener('play',function(){if(current)setIcon(current,true);});
+  song.addEventListener('pause',function(){if(current)setIcon(current,false);});
+  song.addEventListener('timeupdate',function(){if(current)draw(current);});
+  song.addEventListener('ended',function(){var i=rows.indexOf(current);if(i>-1&&i<rows.length-1)start(rows[i+1]);});
+  vids.forEach(function(v){v.addEventListener('play',function(){song.pause();});});
+  window.addEventListener('resize',function(){rows.forEach(draw);});
+
+  // before/after compare
+  var cmp=document.getElementById('compare');
+  if(cmp){var rng=cmp.querySelector('input');rng.addEventListener('input',function(){cmp.style.setProperty('--pos',rng.value+'%');});}
+
+  // ambient shot loops: play only while visible
+  var loops=[].slice.call(document.querySelectorAll('.shots video, video.loop'));
+  if('IntersectionObserver' in window&&!still){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var p=e.target.play();if(p&&p.catch)p.catch(function(){});}else e.target.pause();});},{threshold:.35});
+    loops.forEach(function(v){io.observe(v);});
+  } else loops.forEach(function(v){v.controls=true;});
+
+  // screen carousels
+  [].slice.call(document.querySelectorAll('[data-run]')).forEach(function(run){
+    var imgs=[].slice.call(run.querySelectorAll('.frames img')), cap=run.querySelector('.run-cap'), dots=run.querySelector('.dots'), i=0, timer=null;
+    imgs.forEach(function(im,k){var b=document.createElement('button');b.type='button';b.setAttribute('aria-label','Show screen '+(k+1));b.addEventListener('click',function(){show(k);restart();});dots.appendChild(b);});
+    var bs=[].slice.call(dots.children);
+    function show(k){i=k;imgs.forEach(function(im,j){im.classList.toggle('on',j===k);});bs.forEach(function(b,j){b.setAttribute('aria-current',j===k);});cap.textContent=imgs[k].alt;}
+    function restart(){clearInterval(timer);if(!still)timer=setInterval(function(){show((i+1)%imgs.length);},3200);}
+    show(0);restart();
+    run.addEventListener('mouseenter',function(){clearInterval(timer);});
+    run.addEventListener('mouseleave',restart);
+  });
+
+  // scroll reveal: content is visible by default; only blocks below the fold wait
+  if('IntersectionObserver' in window&&!still){
+    var blocks=[].slice.call(document.querySelectorAll('.project,.sec-head,.ads>.ad,.cards>.card,.track,.about>div'));
+    var ro=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.remove('wait');ro.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+    blocks.forEach(function(b){b.classList.add('reveal');if(b.getBoundingClientRect().top>window.innerHeight){b.classList.add('wait');ro.observe(b);}});
+  }
+
+  // counting numbers
+  if('IntersectionObserver' in window&&!still){
+    var co=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;co.unobserve(e.target);var el=e.target,end=+el.dataset.count,suf=el.dataset.suffix||'',t0=null;
+      function step(t){if(!t0)t0=t;var p=Math.min(1,(t-t0)/1400),v=Math.round(end*(1-Math.pow(1-p,3)));el.textContent=v.toLocaleString('en-US')+(p===1?suf:'');if(p<1)requestAnimationFrame(step);}
+      requestAnimationFrame(step);});},{threshold:.6});
+    [].slice.call(document.querySelectorAll('[data-count]')).forEach(function(el){co.observe(el);});
+  }
+
+  // dust drifting in the corridor light
+  var mc=document.querySelector('.motes');
+  if(mc&&!still){
+    var mg=mc.getContext('2d'),P=[],W=0,H=0,dpr=window.devicePixelRatio||1,running=false;
+    function size(){var r=mc.getBoundingClientRect();W=r.width;H=r.height;mc.width=W*dpr;mc.height=H*dpr;mg.setTransform(dpr,0,0,dpr,0,0);}
+    size();window.addEventListener('resize',size);
+    for(var n=0;n<46;n++)P.push({x:Math.random(),y:Math.random(),r:Math.random()*1.6+.4,v:Math.random()*.00025+.00008,a:Math.random()*.45+.15,w:Math.random()*6.28});
+    function tick(t){if(!running)return;mg.clearRect(0,0,W,H);
+      P.forEach(function(p){p.y-=p.v;if(p.y<-.02){p.y=1.02;p.x=Math.random();}var x=(p.x+Math.sin(t/4000+p.w)*.01)*W,y=p.y*H;mg.globalAlpha=p.a*(.55+.45*Math.sin(t/1300+p.w));mg.fillStyle='#e9cf94';mg.beginPath();mg.arc(x,y,p.r,0,6.283);mg.fill();});
+      requestAnimationFrame(tick);}
+    if('IntersectionObserver' in window){new IntersectionObserver(function(es){var was=running;running=es[0].isIntersecting;if(running&&!was)requestAnimationFrame(tick);}).observe(mc);}
+    else{running=true;requestAnimationFrame(tick);}
+  }
+
+  // showreel
+  var rv=document.getElementById('reelVideo'), rp=document.getElementById('reelPlay');
+  if(rv&&rp){rp.addEventListener('click',function(){rp.hidden=true;vids.forEach(function(o){if(o!==rv)o.pause();});if(song)song.pause();var p=rv.play();if(p&&p.catch)p.catch(function(){rp.hidden=false;});});
+    rv.addEventListener('play',function(){rp.hidden=true;});}
+})();
+</script>
+
+</body>
+</html>
